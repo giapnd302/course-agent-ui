@@ -33,3 +33,23 @@ export const sendChatMessage = async (userId: string, message: string, sessionId
   const response = await apiClient.post('/chat-plan', payload);
   return response.data;
 };
+
+// ... (giữ nguyên các hàm cũ ở trên)
+
+// 4. Hàm gọi API Đăng nhập
+export const loginUser = async (username: string, password: string) => {
+  const response = await apiClient.post('/login', { username, password });
+  return response.data;
+};
+
+// 5. Hàm gọi API Đăng ký
+export const registerUser = async (username: string, password: string) => {
+  const response = await apiClient.post('/register', { username, password });
+  return response.data;
+};
+
+// 6. Hàm lấy số lượng Token đã dùng
+export const fetchTokenUsage = async (username: string) => {
+  const response = await apiClient.get(`/tokens/${username}`);
+  return response.data;
+};
